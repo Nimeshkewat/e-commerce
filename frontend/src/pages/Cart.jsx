@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import { AppContext } from '../context/AppContextProvider';
 import { IoArrowBackCircleOutline } from "react-icons/io5"
 import { Link } from 'react-router-dom';
+import { MdDelete } from "react-icons/md";
 
 function Cart() {
   axios.defaults.withCredentials = true;
@@ -15,13 +16,25 @@ function Cart() {
       const { data } = await axios.get(`${backendUrl}/api/cart/get-cart`);
       setCartLength(data.cart.items.length)
       localStorage.setItem('cartLength', data.cart.items.length);
-
       setCartItems(data.cart.items);
     } catch (error) {
       console.log(error);
       toast.error(error?.response?.data?.message || 'Something went wrong');
     }
   };
+
+  const handleRemoveCart = async (id) => {
+    try {
+      const {data} = await axios.delete(`${backendUrl}/api/cart/${id}`);
+      if(data.success){
+        toast.info(data.message); 
+        getCart();
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(error?.response?.data?.message || 'Something went wrong');
+    }
+  }
 
   useEffect(() => {
     getCart();
@@ -69,7 +82,11 @@ function Cart() {
                       ? `${cart.productId.stock} in stock`
                       : `Out of stock`}
                   </p>
-                  <p className="text-gray-700">Quantity: {cart.quantity}</p>
+                  <div>
+                   <p className="text-gray-700 font-semibold">Quantity: {cart.quantity}</p>
+                    <button onClick={()=>handleRemoveCart(cart.productId._id)} className='bg-red-600 text-white cursor-pointer hover:bg-red-500 transition-all duration-200 w-full py-2 px-6 mt-2 rounded-lg font-semibold text-sm'><MdDelete size={30}/></button>
+                  </div>
+
                 </div>
               </div>
             </div>

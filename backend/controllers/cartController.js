@@ -67,14 +67,12 @@ export const removeCartItem = async (req, res) => {
   try {
     const userId = req.user.id;
     const { productId } = req.params;
-
-    const cart = await Cart.findOneAndUpdate(
-      { userId },
-      { $pull: { items: { productId } } },
-      { new: true }
-    );
-
-    res.json({ success: true, message: "Item removed", cart });
+    const cart = await Cart.findOne({ userId });
+    
+    cart.items = cart.items.filter(item => item.productId.toString() !== productId);
+    await cart.save();
+    
+    res.json({ success: true, message: "Item removed", });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }

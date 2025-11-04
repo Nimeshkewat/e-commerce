@@ -38,7 +38,6 @@ function Navbar() {
     }
   }
     
-  console.log('Navbar', cartLength);
   return (
     <nav>
 
@@ -49,22 +48,22 @@ function Navbar() {
                 <input value={search} onChange={(e)=>setSearch(e.target.value)} type="text" placeholder='What are you looking for?' className='w-20 text-white sm:w-40 md:w-70 h-full py-5 px-2 border-none text-lg font-medium outline-none' />
                 <div className='relative flex items-center justify-end text-white font-medium text-lg w-30 h-5'>
                     <p onClick={() =>{setNavdrop(false); setIsOpen(prev => !prev)}} className='cursor-pointer  flex items-center justify-between'><span className='hidden  sm:block'>{dropdown}</span><span className={` ${isOpen ? 'rotate-0' :'rotate-180'} `}><RiArrowDropDownLine size={40}/></span></p>
-                    {isOpen && <div className='z-50 absolute top-10 left-7 py-4 w-50 px-5 border-none outline-none rounded-lg border border-white bg-gray-800 '>
+                    {isOpen && <div className='z-50 absolute top-10 left-7 py-4 w-50 px-5 border-none outline-none rounded-lg  border-white bg-gray-800 '>
                         <p onClick={() => {
                             setDropdown('Electronics');
                             setCategory('Electronics')
                             setIsOpen(false);
-                        }} className={`${dropdown === 'Electronics' && 'text-pink-500'} hover:bg-gray-700  font-medium cursor-pointer mb-4 p-0.5`}>Electronics</p>
+                        }} className={`${dropdown === 'Electronics' && 'text-green-500'} hover:bg-gray-700  font-medium cursor-pointer mb-4 p-0.5`}>Electronics</p>
                         <p onClick={() => {
                             setDropdown('Mobiles');
                             setCategory('Mobiles')
                             setIsOpen(false);
-                        }} className={`${dropdown === 'Mobiles' && 'text-pink-500'} hover:bg-gray-700 font-medium cursor-pointer mb-4 p-0.5`}>Mobiles</p>
+                        }} className={`${dropdown === 'Mobiles' && 'text-green-500'} hover:bg-gray-700 font-medium cursor-pointer mb-4 p-0.5`}>Mobiles</p>
                         <p onClick={() => {
                             setDropdown('Furniture');
                             setCategory('Furniture');
                             setIsOpen(false);
-                        }} className={`${dropdown === 'Furniture' && 'text-pink-500'} hover:bg-gray-700 font-medium cursor-pointer mb-4 p-0.5`}>Furniture</p>
+                        }} className={`${dropdown === 'Furniture' && 'text-green-500'} hover:bg-gray-700 font-medium cursor-pointer mb-4 p-0.5`}>Furniture</p>
                     </div>}
                 </div>
                 <button className=' cursor-pointer text-white flex items-center justify-center w-12 h-12 rounded-full '><FaSearch size={25}/></button>
@@ -78,9 +77,9 @@ function Navbar() {
                   <span className='absolute -top-2 -right-2 flex items-center justify-center p-2 text-xs bg-red-600 w-3 h-3 rounded-full'>{cartLength}</span>
                 </Link>
                 <button onClick={()=>setIsProfileOpen(prev=>!prev)} className='cursor-pointer text-white hover:text-gray-200'><FaUser size={30}/></button>
-                {isProfileOpen && <div className='bg-white px-6 py-3 rounded-lg absolute top-10 right-4 z-10'>
-                    <p className='text-left font-semibold text-lg text-gray-700 hover:bg-slate-200 px-3 py-1 cursor-pointer'>Profile</p>
-                    <p onClick={handleLogout} className='font-semibold text-lg text-gray-700 hover:bg-slate-200 px-3 py-1 cursor-pointer'>Logout</p>
+                {isProfileOpen && <div className='z-50 bg-gray-800  px-6 py-3 rounded-lg absolute top-10 right-4 '>
+                    <p className='text-left font-semibold text-lg text-white hover:bg-gray-600 px-3 py-1 cursor-pointer'>Profile</p>
+                    <p onClick={handleLogout} className=' font-semibold text-lg text-white hover:bg-gray-600 px-3 py-1 cursor-pointer'>Logout</p>
                 </div>}
             </div>
             :<div className='flex items-center gap-3'>
