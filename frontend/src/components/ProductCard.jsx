@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 
 function ProductCard({ product }) {
   axios.defaults.withCredentials = true;
-  const {backendUrl,isLoggedIn:token, setCartLength} = useContext(AppContext);
+  const {backendUrl,isLoggedIn:token,} = useContext(AppContext);
   const [quantity, setQuantity] = useState(1);
 
   const increasyQty = () => {

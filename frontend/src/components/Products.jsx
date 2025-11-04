@@ -76,7 +76,7 @@ function Products() {
           onClick={() => setPage(prev => prev + 1)} 
           className="text-white border cursor-pointer hover:bg-white hover:text-black font-medium px-8 py-2 rounded-lg active:scale-95 transition-all"
         >
-          {loading ? 'Loading...' : 'Next'}
+          {loading ? 'Loading...' : 'Load'}
         </button>
         {/* <p className='text-white font-medium text-lg mt-3'>{products.page}/{products.pages}</p> */}
         </div>
