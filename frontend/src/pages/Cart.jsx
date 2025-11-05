@@ -6,7 +6,7 @@ import { IoArrowBackCircleOutline } from "react-icons/io5"
 import { Link } from 'react-router-dom';
 import { MdDelete } from "react-icons/md";
 
-function Cart() {
+function Cart() { 
   axios.defaults.withCredentials = true;
   const { backendUrl, setCartLength } = useContext(AppContext);
   const [cartItems, setCartItems] = useState([]);
@@ -96,5 +96,4 @@ function Cart() {
     </div>
   );
 }
-
 export default Cart;

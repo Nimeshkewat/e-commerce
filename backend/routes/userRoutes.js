@@ -7,6 +7,6 @@ userRouter.post('/register', register);
 userRouter.post('/login', login);
 userRouter.post('/logout', logout);
 userRouter.post('/forgot-password', forgotPassword);
-userRouter.post('/reset-password', resetPassword);
+userRouter.post('/reset-password/:token', resetPassword);
 
 export default userRouter;

@@ -28,21 +28,23 @@ function Register() {
   };
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
+    if(password.length < 8){
+      toast.info('Password must be 8 character or more')
+      return;
+    }
+    
     try {
-      e.preventDefault();
       setLoading(true);
       const {data} = await axios.post(`${backendUrl}/api/register`, {name, email, password, avatar});
       if(toast.success){
         toast.success(data.message);
         navigate('/login');
-      }else{
-        toast.error(data.message);
-        return;
       }
       
     } catch (error) {
       console.log(error);
-      toast.error(error.response?.data?.message || 'Something went wrong');
+      toast.error(error?.response?.data?.message || 'Something went wrong');
     } finally {
       setLoading(false);
     }

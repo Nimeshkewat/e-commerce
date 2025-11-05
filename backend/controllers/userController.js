@@ -135,7 +135,7 @@ export const forgotPassword = async (req, res) => {
             text:`Click here to reset: ${resetUrl}`
         })
 
-        res.status(200).json({ message: "Reset link sent to email" });
+        res.status(200).json({success:true, message: "Reset link sent to email" });
     } catch (error) {
         return res.status(500).json({success:false, message:error.message});
     }
@@ -168,7 +168,7 @@ export const resetPassword = async (req, res) => {
 
         await user.save();
 
-        res.status(200).json({ message: "Password reset successful" });
+        res.status(200).json({success:true, message: "Password reset successful" });
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: "Server error" });

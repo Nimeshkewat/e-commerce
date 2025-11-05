@@ -59,7 +59,7 @@ function Products() {
   }, [page]);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col ">
       <h2 className="text-white text-center text-2xl font-medium">Best Products</h2>
 
         <div className="mt-6 mx-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
