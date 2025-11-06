@@ -171,6 +171,25 @@ export const resetPassword = async (req, res) => {
         res.status(200).json({success:true, message: "Password reset successful" });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: "Server error" });
+        res.status(500).json({success:false, message: "Server error" });
     }
 };
+
+//* user profile
+export const getProfile = async (req, res) => {
+    try {
+        const id = req?.user?.id;
+
+        const user = await User.findById(id)
+
+        if(!user){
+            return res.status(404).json({success:false, message:'User not found'})
+        }
+
+        res.json({success:true, user});
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({success:false, message:'Server error'});
+    }
+}

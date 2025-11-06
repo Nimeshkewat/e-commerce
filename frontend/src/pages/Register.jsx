@@ -37,7 +37,7 @@ function Register() {
     try {
       setLoading(true);
       const {data} = await axios.post(`${backendUrl}/api/register`, {name, email, password, avatar});
-      if(toast.success){
+      if(data.success){
         toast.success(data.message);
         navigate('/login');
       }

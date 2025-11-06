@@ -14,7 +14,6 @@ function ForgotPassword() {
         setLoading(true);
         try {
             const {data} = await axios.post(`${backendUrl}/api/forgot-password`, {email});
-            console.log(data);
             if(data.success){
                 toast.info(data.message);
             }

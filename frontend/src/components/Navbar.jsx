@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { FaSearch } from "react-icons/fa";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -6,38 +6,15 @@ import { IoMdClose } from "react-icons/io";
 import {Link} from 'react-router-dom'
 import { AppContext } from '../context/AppContextProvider';
 import { FaUser } from "react-icons/fa";
-import { toast } from 'react-toastify';
-import axios from 'axios';
 import { FaCartArrowDown } from "react-icons/fa";
 
 function Navbar() {
-    const {search, setSearch, setCategory, backendUrl, setIsLoggedIn, isLoggedIn, cartLength} = useContext(AppContext);
+    const {search, setSearch, setCategory, isLoggedIn, cartLength, handleLogout} = useContext(AppContext);
     const [isOpen, setIsOpen] = useState(false);
     const [dropdown, setDropdown] = useState('All')
     const [navDrop, setNavdrop] = useState(false);
     const [isProfileOpen, setIsProfileOpen] = useState(false);
 
-  const handleLogout = async (e) => {
-    try {
-      e.preventDefault();
-      const {data} = await axios.post(`${backendUrl}/api/logout`);
-
-      if(data.success){
-        toast.success(data.message);
-        setIsLoggedIn(false);
-        localStorage.removeItem('token');
-        return;
-      }else{
-        toast.error(data.message);
-        return;
-      }
-      
-    } catch (error) {
-      console.log(error);
-      toast.error(error.response?.data?.message || 'Something went wrong');
-    }
-  }
-    
   return (
     <nav>
 
