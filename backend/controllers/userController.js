@@ -183,10 +183,34 @@ export const getProfile = async (req, res) => {
         const user = await User.findById(id)
 
         if(!user){
-            return res.status(404).json({success:false, message:'User not found'})
+            return res.status(404).json({success:false, message:'user not found'})
         }
 
         res.json({success:true, user});
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({success:false, message:'Server error'});
+    }
+}
+
+//* edit user profile
+export const editProfile = async (req, res) => {
+    try {
+        const id = req.user.id;
+        const {name, email} = req.body;
+        
+        const user = await User.findById(id)
+
+        if(!user){
+            return res.status(404).json({success:false, message:'user not found'})
+        }
+
+        user.name = name;
+        user.email = email;
+        await user.save();
+
+        res.json({success:true, message:'Profile updated', user});
 
     } catch (error) {
         console.log(error);
