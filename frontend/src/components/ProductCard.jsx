@@ -23,8 +23,8 @@ function ProductCard({ product }) {
 
   const handleAddToCart = async (productId) => {
     if(!token){
-      toast.info('"Please log in to add items to cart', {position:'bottom-right', autoClose:'1000'})
-      return;
+      toast.info('Please log in to add items to cart', {position:'bottom-right', autoClose:'1000'})
+      return; 
     }
     try {
       const {data} = await axios.post(`${backendUrl}/api/cart/add-to-cart`, {productId, quantity});

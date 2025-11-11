@@ -53,7 +53,7 @@ function Register() {
 
   return (
     <>
-      <Link to='/'><h2 className='fixed top-5 left-5 hover:text-gray-300 text-white transition-all duration-500 cursor-pointer font-bold text-lg  md:text-2xl lg:text-3xl '>N-MART</h2></Link>
+      <Link to='/'><h2 className='fixed ita top-5 left-5 hover:text-gray-300 text-white transition-all duration-500 cursor-pointer font-bold text-lg  md:text-2xl lg:text-3xl '>N-MART</h2></Link>
       <form onSubmit={handleSubmit} className='h-screen bg-black flex flex-col items-center transition-all duration-500'>
         <div className='mt-20 flex flex-col w-1/2 md:w-1/4 gap-7'>
           <h2 className='text-center font-bold  text-3xl text-white'>Sign up</h2>

@@ -41,14 +41,14 @@ function Cart() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
+    <div className="min-h-screen bg-black p-6">
       <div className='flex items-center  gap-4'>
-      <Link to='/'><h1 className='mb-6'><IoArrowBackCircleOutline size={30} /></h1></Link>
-      <h1 className="text-2xl font-semibold mb-6 text-gray-800">🛒 Your Cart</h1>
+      <Link to='/'><h1 className='mb-6 text-white'><IoArrowBackCircleOutline size={30} /></h1></Link>
+      <h1 className="text-2xl font-semibold mb-6 text-gray-200">🛒 Your Cart</h1>
       </div>
 
       {cartItems.length === 0 ? (
-        <div className="text-center text-gray-500 mt-10">
+        <div className="text-center text-gray-100 mt-10">
           <p>Your cart is empty.</p>
         </div>
       ) : (
@@ -56,7 +56,7 @@ function Cart() {
           {cartItems.map((cart) => (
             <div
               key={cart._id}
-              className="flex flex-col sm:flex-row items-center sm:items-start bg-white shadow-md rounded-2xl p-4 hover:shadow-lg transition-shadow duration-300"
+              className="flex flex-col sm:flex-row items-center sm:items-start bg-gray-900 shadow-md rounded-2xl p-4 hover:shadow-lg transition-shadow duration-300"
             >
               <div className="w-32 h-32 shrink-0 overflow-hidden rounded-xl">
                 <img
@@ -68,8 +68,8 @@ function Cart() {
 
               <div className="sm:ml-6 mt-4 sm:mt-0 flex flex-col justify-between w-full">
                 <div>
-                  <h2 className="text-lg font-semibold text-gray-800">{cart.productId.name}</h2>
-                  <p className="text-gray-600 text-sm mt-1">{cart.productId.desc}</p>
+                  <h2 className="text-lg font-semibold text-gray-100">{cart.productId.name}</h2>
+                  <p className="text-gray-100 text-sm mt-1">{cart.productId.desc}</p>
                 </div>
 
                 <div className="mt-3 flex flex-wrap justify-between text-sm">
@@ -83,7 +83,7 @@ function Cart() {
                       : `Out of stock`}
                   </p>
                   <div>
-                   <p className="text-gray-700 font-semibold">Quantity: {cart.quantity}</p>
+                   <p className="text-gray-100 font-semibold">Quantity: {cart.quantity}</p>
                     <button onClick={()=>handleRemoveCart(cart.productId._id)} className='bg-red-600 text-white cursor-pointer hover:bg-red-500 transition-all duration-200 w-full py-2 px-6 mt-2 rounded-lg font-semibold text-sm'><MdDelete size={30}/></button>
                   </div>
 

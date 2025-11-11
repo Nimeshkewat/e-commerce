@@ -2,12 +2,11 @@ import axios from 'axios';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 import { AppContext } from '../context/AppContextProvider';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Profile() {
   axios.defaults.withCredentials = true;
   const { backendUrl, handleLogout } = useContext(AppContext);
-  const navigate = useNavigate();
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
@@ -79,7 +78,7 @@ function Profile() {
       <div role='dialog' aria-modal="true" className='z-50 flex items-center min-h-screen px-8'>
         <div className="bg-gray-800 max-w-md rounded-lg  p-4 mx-auto  w-full flex flex-col ">
 
-        <p className=' text-gray-300 text-center text-sm'>Are you sure you to update profile ?</p>
+        <p className=' text-gray-300 text-center text-sm'>Are you sure you want to update profile ?</p>
           <div className='text-white flex items-center justify-center gap-x-3'>
             <button onClick={handleEditProfile} className='cursor-pointer hover:text-gray-300'>yes</button>
             <button onClick={()=>setModal(false)}  className='cursor-pointer hover:text-gray-300'>no</button>
@@ -94,7 +93,7 @@ function Profile() {
       {/* Navbar */}
       <Link
         to="/"
-        className="absolute top-5 left-5 text-2xl font-bold text-white hover:text-gray-300 transition-all"
+        className="absolute italic top-5 left-5 text-2xl font-bold text-white hover:text-gray-300 transition-all"
       >
         N-MART
       </Link>

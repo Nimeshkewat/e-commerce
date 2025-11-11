@@ -7,7 +7,7 @@ export const AppContext = createContext();
 
 function AppContextProvider({children}) {
     const navigate = useNavigate();
-    const backendUrl = `http://localhost:4000`
+    const backendUrl = import.meta.env.VITE_BACKENDURL;
     const [search, setSearch] = useState('');
     const [category, setCategory] = useState('');
     const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('token') ? localStorage.getItem('token') : false);
