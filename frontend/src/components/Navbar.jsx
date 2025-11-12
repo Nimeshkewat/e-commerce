@@ -19,10 +19,10 @@ function Navbar() {
     <nav>
 
         <div className='h-25 max-w-7xl mx-auto w-full border-b border-gray-300 mb-10 relative flex items-center justify-between gap-3 md:gap-8 px-3 sm:px-4 md:px-8'>
-            <div className='cursor-pointer text-white md:hidden block transition-all duration-500'>{navDrop ? <IoMdClose onClick={()=>setNavdrop(false)} size={40}/> : <GiHamburgerMenu onClick={()=>setNavdrop(true)} size={40}/>}</div>
+            <div className='cursor-pointer text-white md:hidden block transition-all duration-500'>{navDrop ? <IoMdClose onClick={()=>setNavdrop(false)} size={30}/> : <GiHamburgerMenu onClick={()=>setNavdrop(true)} size={30}/>}</div>
             <h2 className='text-white italic font-bold text-[20px] hidden sm:block  md:text-2xl lg:text-3xl '>N-MART</h2>
-            <form onSubmit={(e)=>{e.preventDefault(); setSearch('')}} className={` border border-white px-2  transition-all duration-300 rounded-full h-15  flex items-center`}>
-                <input value={search} onChange={(e)=>setSearch(e.target.value)} type="text" placeholder='What are you looking for?' className=' text-white max-w-3xl w-full h-full py-5 px-2 border-none text-lg font-medium outline-none' />
+            <form onSubmit={(e)=>{e.preventDefault(); setSearch('')}} className={` border border-white px-2  transition-all duration-300 rounded-full h-13  flex items-center`}>
+                <input value={search} onChange={(e)=>setSearch(e.target.value)} type="text" placeholder='What are you looking for?' className=' text-white max-w-3xl w-full h-full py-5 px-2 border-none text-sm md:text-lg font-medium outline-none' />
                 <div className='relative flex items-center justify-end text-white font-medium text-sm sm:text-lg max-w-2xl w-full h-5'>
                     <p onClick={() =>{setNavdrop(false); setIsOpen(prev => !prev)}} className='cursor-pointer  flex items-center justify-between'><span className='hidden  sm:block'>{dropdown}</span><span className={` ${isOpen ? 'rotate-0' :'rotate-180'} `}><RiArrowDropDownLine size={40}/></span></p>
                     {isOpen && <div className='z-50 absolute top-10 -left-9 py-4  px-5 border-none outline-none rounded-lg  border-white bg-gray-800 '>
@@ -30,7 +30,7 @@ function Navbar() {
                             setDropdown('All');
                             setCategory('')
                             setIsOpen(false);
-                        }} className={`${dropdown === 'All' && 'text-green-500'} hover:bg-gray-700  font-medium cursor-pointer mb-4 p-0.5`}>All</p>
+                        }} className={`${dropdown === 'All' && 'text-green-500'} hover:bg-gray-700 font-medium cursor-pointer mb-4 p-0.5`}>All</p>
                         <p onClick={() => {
                             setDropdown('Electronics');
                             setCategory('Electronics')
@@ -48,7 +48,7 @@ function Navbar() {
                         }} className={`${dropdown === 'Furniture' && 'text-green-500'} hover:bg-gray-700 font-medium cursor-pointer mb-4 p-0.5`}>Furniture</p>
                     </div>}
                 </div>
-                <button className=' cursor-pointer text-white flex items-center justify-center w-12 h-12 rounded-full '><FaSearch size={20}/></button>
+                <button className=' cursor-pointer text-white flex items-center justify-center w-12 h-12 rounded-full '><FaSearch size={17}/></button>
             </form>
 
 
@@ -80,19 +80,19 @@ function Navbar() {
 
 
             {/*  */}
-            {navDrop && <div className={`z-50 absolute flex flex-col gap-6 pl-0 py-10 bg-gray-900 text-gray-400 font-bold text-3xl top-25  transition-all duration-400`}>
-                <h2 className='text-white font-bold text-2xl'>N-MART</h2>
+            {navDrop && <div className={`z-50 absolute flex flex-col items-center gap-6 pl-0 py-10 bg-gray-900 text-gray-400 font-bold text-3xl top-25  transition-all duration-400  w-full max-w-[150px]`}>
+                <h2 className='text-white font-bold text-lg'>N-MART</h2>
                 <Link to='/cart'>
-                <p className='hover:text-gray-500 text-2xl cursor-pointer flex'>Cart <RiArrowDropDownLine/></p>
+                <p className='hover:text-gray-500 text-lg cursor-pointer flex'>Cart <RiArrowDropDownLine/></p>
                 </Link>
                 <Link to='/profile'>
-                <p className='hover:text-gray-500 text-2xl cursor-pointer flex'>Profile <RiArrowDropDownLine/></p>
+                <p className='hover:text-gray-500 text-lg cursor-pointer flex'>Profile <RiArrowDropDownLine/></p>
                 </Link>
-                <p className='hover:text-gray-500 text-2xl cursor-pointer flex'>Explore <RiArrowDropDownLine/></p>
-                <p className='hover:text-gray-500 text-2xl cursor-pointer flex'>Find Talent <RiArrowDropDownLine/></p>
-                <p className='hover:text-gray-500 text-2xl cursor-pointer flex'>Get Hired <RiArrowDropDownLine/></p>
-                <p className='hover:text-gray-500 text-2xl  cursor-pointer flex'>Blog <RiArrowDropDownLine/></p>
-                <p onClick={handleLogout} className='hover:text-gray-500 text-2xl cursor-pointer flex'>logout</p>
+                <p className='hover:text-gray-500 text-lg cursor-pointer flex'>Explore <RiArrowDropDownLine/></p>
+                <p className='hover:text-gray-500 text-lg cursor-pointer flex'>Find Talent <RiArrowDropDownLine/></p>
+                <p className='hover:text-gray-500 text-lg cursor-pointer flex'>Get Hired <RiArrowDropDownLine/></p>
+                <p className='hover:text-gray-500 text-lg  cursor-pointer flex'>Blog <RiArrowDropDownLine/></p>
+                {isLoggedIn && <p onClick={handleLogout} className='hover:text-gray-500 text-2xl cursor-pointer flex'>logout</p>}
             </div>}
 
         </div>

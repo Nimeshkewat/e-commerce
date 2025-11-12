@@ -10,6 +10,7 @@ function Cart() {
   axios.defaults.withCredentials = true;
   const { backendUrl, setCartLength } = useContext(AppContext);
   const [cartItems, setCartItems] = useState([]);
+  const [loading, setLoadin] = useState(false);
 
   const getCart = async () => {
     try {
@@ -32,13 +33,19 @@ function Cart() {
       }
     } catch (error) {
       console.log(error);
-      toast.error(error?.response?.data?.message || 'Something went wrong');
+      // toast.error(error?.response?.data?.message || 'Something went wrong');
     }
   }
 
   useEffect(() => {
     getCart();
   }, []);
+
+  if(loading){
+    return <div className='min-h-screen grid place-items-center'>
+      <h1 className='text-lg font-medium'>Loading...</h1>
+    </div>
+  }
 
   return (
     <div className="min-h-screen bg-black p-6">
