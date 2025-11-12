@@ -10,10 +10,11 @@ function Cart() {
   axios.defaults.withCredentials = true;
   const { backendUrl, setCartLength } = useContext(AppContext);
   const [cartItems, setCartItems] = useState([]);
-  const [loading, setLoadin] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const getCart = async () => {
     try {
+      setLoading(true);
       const { data } = await axios.get(`${backendUrl}/api/cart/get-cart`);
       setCartLength(data.cart.items.length)
       localStorage.setItem('cartLength', data.cart.items.length);
@@ -21,6 +22,8 @@ function Cart() {
     } catch (error) {
       console.log(error);
       toast.error(error?.response?.data?.message || 'Something went wrong');
+    } finally {
+      setLoading(false)
     }
   };
 
