@@ -82,16 +82,16 @@ function Navbar() {
             {navDrop && <div className={`z-50 absolute flex flex-col items-center gap-6 pl-0 py-10 bg-gray-900 text-gray-400 font-bold text-3xl top-25  transition-all duration-400  w-full max-w-[150px]`}>
                 <h2 className='text-white font-bold text-lg'>N-MART</h2>
                 <Link to='/cart'>
-                <p className='hover:text-gray-500 text-lg cursor-pointer flex'>Cart <RiArrowDropDownLine/></p>
+                <p className='text-green-500 hover:text-green-600 text-lg cursor-pointer flex'>Cart</p>
                 </Link>
                 {isLoggedIn && <Link to='/profile'>
-                <p className='hover:text-gray-500 text-lg cursor-pointer flex'>Profile <RiArrowDropDownLine/></p>
+                <p className='text-green-500 hover:text-green-600 text-lg cursor-pointer flex'>Profile</p>
                 </Link>}
-                <p className='hover:text-gray-500 text-lg cursor-pointer flex'>Explore <RiArrowDropDownLine/></p>
-                <p className='hover:text-gray-500 text-lg cursor-pointer flex'>Find Talent <RiArrowDropDownLine/></p>
-                <p className='hover:text-gray-500 text-lg cursor-pointer flex'>Get Hired <RiArrowDropDownLine/></p>
-                <p className='hover:text-gray-500 text-lg  cursor-pointer flex'>Blog <RiArrowDropDownLine/></p>
-                {isLoggedIn && <p onClick={handleLogout} className='hover:text-gray-500 text-2xl cursor-pointer flex'>logout</p>}
+                <p className='hover:text-gray-500 text-lg cursor-pointer flex'>Explore</p>
+                <p className='hover:text-gray-500 text-lg cursor-pointer flex'>Find Talent</p>
+                <p className='hover:text-gray-500 text-lg cursor-pointer flex'>Get Hired</p>
+                <p className='hover:text-gray-500 text-lg  cursor-pointer flex'>Blog</p>
+                {isLoggedIn && <p onClick={handleLogout} className='text-red-500 hover:text-red-600  text-lg cursor-pointer flex'>logout</p>}
             </div>}
 
         </div>
