@@ -67,15 +67,14 @@ function Navbar() {
                 </div>}
             </div>
             :<div className='flex items-center gap-3'>
-                <Link to='/cart' className='hover:scale-105 transition-transform duration-150 relative  text-white cursor-pointer'>
+                <Link to='/cart' className='hover:scale-105 hidden md:block transition-transform duration-150 relative  text-white cursor-pointer'>
                   <FaCartArrowDown size={30}/>
-                  <span className='absolute  -top-2 -right-2 flex items-center justify-center p-2 text-xs bg-red-600 w-3 h-3 rounded-full'></span>
+                  <span className='absolute  -top-2 -right-2 flex items-center justify-center p-2 text-xs bg-red-600 w-3 h-3 rounded-full'>{cartLength ? cartLength : 0}</span>
                 </Link>
-                <Link to='/register'><button className='font-medium hidden md:block cursor-pointer text-white hover:text-gray-200'>Sign up</button></Link>
-                <Link to='/login'><button className='bg-black text-white font-medium cursor-pointer hover:bg-amber-950 py-2 px-6 rounded-3xl'>Log in</button></Link>
+                <Link to='/register'><button className='font-medium hidden md:block text-sm md:text-lg cursor-pointer text-white hover:text-gray-200'>Sign up</button></Link>
+                <Link to='/login'><button className='bg-black text-white font-medium text-sm md:text-lg cursor-pointer hover:text-gray-200 py-2 px-2 rounded-3xl'>Log in</button></Link>
             </div>
             }
-
 
 
 
