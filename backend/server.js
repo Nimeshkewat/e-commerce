@@ -26,7 +26,7 @@ connectDb();
 app.use(express.json({limit:'10mb'}));
 app.use(cookieParser());
 app.use(cors({
-    origin:['http://localhost:5173', 'https://e-commerce-frontend-rcsa.onrender.com'],
+    origin:['http://localhost:5173', process.env.FRONTEND_URL],
     credentials:true
 }));
 //* home 
