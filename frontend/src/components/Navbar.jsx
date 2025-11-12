@@ -85,9 +85,9 @@ function Navbar() {
                 <Link to='/cart'>
                 <p className='hover:text-gray-500 text-lg cursor-pointer flex'>Cart <RiArrowDropDownLine/></p>
                 </Link>
-                <Link to='/profile'>
-                {isLoggedIn && <p className='hover:text-gray-500 text-lg cursor-pointer flex'>Profile <RiArrowDropDownLine/></p>}
-                </Link>
+                {isLoggedIn && <Link to='/profile'>
+                <p className='hover:text-gray-500 text-lg cursor-pointer flex'>Profile <RiArrowDropDownLine/></p>
+                </Link>}
                 <p className='hover:text-gray-500 text-lg cursor-pointer flex'>Explore <RiArrowDropDownLine/></p>
                 <p className='hover:text-gray-500 text-lg cursor-pointer flex'>Find Talent <RiArrowDropDownLine/></p>
                 <p className='hover:text-gray-500 text-lg cursor-pointer flex'>Get Hired <RiArrowDropDownLine/></p>
