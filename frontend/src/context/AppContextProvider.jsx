@@ -7,7 +7,7 @@ export const AppContext = createContext();
 
 function AppContextProvider({children}) {
     const navigate = useNavigate();
-    const backendUrl = 'https://e-commerce-czwc.onrender.com';
+    const backendUrl = 'https://e-commerce-backend-m32d.onrender.com';
     const [search, setSearch] = useState('');
     const [category, setCategory] = useState('');
     const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('token') ? localStorage.getItem('token') : false);
